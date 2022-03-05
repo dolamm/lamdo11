@@ -1,25 +1,46 @@
 @extends('layouts.app')
-   
+<link rel="stylesheet" href="{{asset('css/show.css')}}">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="text-center text-success">Bài viết</h3>
-                    <br/>
-                    <h2>{{ $post->title }}</h2>
-                    <p>
-                        {{ $post->body }}
-                    </p>
-                    <hr />
-                    <h4>Bình luận về bài viết này</h4>
-  
-                    @include('posts.commentsDisplay', ['comments' => $post->comments, 'post_id' => $post->id])
-   
-                    <hr />
-                    <h4>Thêm bình luận</h4>
-                    <form method="post" action="{{ route('comments.store'   ) }}">
+<div class="timeline-body">
+                              <div class="timeline-header">
+                              <span class="pull-right text-muted">{{date('d/m/y h:i', strtotime($post->created_at))}}</span>
+                                 <h2>{{ $post->title }}</h2>
+                              </div>
+                              <div class="timeline-content">
+                                 <p>
+                                 {{ $post->body }}
+                                 </p>
+                              </div>
+                              <div class="timeline-likes">
+                                 <div class="stats-right">
+                                    <span class="stats-text">259 Shares</span>
+                                    <span class="stats-text">21 Comments</span>
+                                 </div>
+                                 <div class="stats">
+                                    <span class="fa-stack fa-fw stats-icon">
+                                    <i class="fa fa-circle fa-stack-2x text-danger"></i>
+                                    <i class="fa fa-heart fa-stack-1x fa-inverse t-plus-1"></i>
+                                    </span>
+                                    <span class="fa-stack fa-fw stats-icon">
+                                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                                    <i class="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    <span class="stats-total">4.3k</span>
+                                 </div>
+                              </div>
+                              <div class="timeline-footer">
+                                 <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
+                                 <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a> 
+                                 <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
+                              </div>
+                              @guest
+                                Đăng nhập để comment
+                              @else
+                              @include('posts.commentsDisplay', ['comments' => $post->comments, 'post_id' => $post->id])
+                              <div class="timeline-comment-box">
+                                 <div class="input">
+                                 <form method="post" action="{{ route('comments.store'   ) }}">
                         @csrf
                         <div class="form-group">
                             <textarea class="form-control" name=body></textarea>
@@ -29,11 +50,8 @@
                             <input type=submit class="btn btn-success" value="Add Comment" />
                         </div>
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-@endsection
+                                 </div>
+                              </div>
+                           </div>
+                           @endguest
+                           @endsection                           
