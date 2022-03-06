@@ -4,6 +4,8 @@ namespace App\Models;
   
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\PostLike;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 
 class Post extends Model
@@ -24,8 +26,11 @@ class Post extends Model
      *
      * @var array
      */
+    
     public function comments()
     {
         return $this->hasMany(Comment::class)->whereNull('parent_id');
     }
+
+    
 }
