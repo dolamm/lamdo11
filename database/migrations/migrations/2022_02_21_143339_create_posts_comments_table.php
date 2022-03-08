@@ -17,6 +17,8 @@ class CreatePostsCommentsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('body');
+            $table->unsignedBigInteger('like')->default(0);
+            $table->unsignedBigInteger('dislike')->default(0); 
             $table->timestamps();
             $table->softDeletes();
         });

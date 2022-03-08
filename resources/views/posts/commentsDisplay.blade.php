@@ -3,14 +3,14 @@
 
 @foreach($comments as $comment)
 
-    <div class="display-comment" @if($comment->parent_id != null) style="margin-left:40px;" @endif>
-    <div class="container">
+<div class="display-comment" @if($comment->parent_id != null) style="margin-left:40px;" @endif>
+<div class="container">
 <div class="row">
     <div class="col-md-8">
         <div class="media g-mb-30 media-comment">
                    
         <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
-              <div class="g-mb-15">
+            <div class="g-mb-15">
               <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Image Description">
  
                 <h5 class="h5 g-color-gray-dark-v1 mb-0">{{ $comment->user->name }}</h5>
@@ -54,6 +54,7 @@
         </form>
         @include('posts.commentsDisplay', ['comments' => $comment->replies])
     </div>
-    
+</div>
+</div>  
     @endforeach
     

@@ -1,6 +1,9 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{asset('css/show.css')}}">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+@push('fontawesome')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+@endpush
 @section('content')
 <div class="timeline-body">
                               <div class="timeline-header">
@@ -30,12 +33,18 @@
                                  </div>
                               </div>
                               <div class="timeline-footer">
+                              
+
+                              
+                              <dis-like-component :post="{{ $post->id }}"></dis-like-component>
+
+                              
                                  <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
                                  <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a> 
                                  <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
                               </div>
                               @guest
-                                Đăng nhập để comment
+                                <h7>Đăng nhập để comment</h7>
                               @else
                               @include('posts.commentsDisplay', ['comments' => $post->comments, 'post_id' => $post->id])
                               <div class="timeline-comment-box">

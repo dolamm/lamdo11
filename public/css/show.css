@@ -31,7 +31,7 @@ body{
 }
 
 .profile-header .profile-header-content {
-    color: #fff;
+    color: rgb(231, 216, 216);
     padding: 25px
 }
 
@@ -560,7 +560,7 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 .timeline-footer {
-    background: #fff;
+    background: rgb(225, 225, 233);
     border-top: 1px solid #e2e7ec;
     padding-top: 15px
 }
@@ -608,7 +608,7 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 .timeline-comment-box {
-    background: #f2f3f4;
+    background: #e8ebee;
     margin-left: -25px;
     margin-right: -25px;
     padding: 20px 25px

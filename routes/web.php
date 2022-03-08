@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +29,10 @@ Route::get('/show/{post}',[App\Http\Controllers\PostController::class, 'show'])-
 Route::post('/CommentStore',[App\Http\Controllers\CommentController::class, 'store'])->name('comments.store');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+Route::post('like', [PostController::class, 'getlike']);
+Route::post('like/{id}', [PostController::class, 'like']);
+Route::post('dislike', [PostController::class, 'getDislike']);
+Route::post('dislike/{id}', [PostController::class, 'dislike']);
