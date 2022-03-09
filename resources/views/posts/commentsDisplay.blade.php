@@ -1,7 +1,11 @@
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link rel="stylesheet" href="{{asset('css/CommentShow.css')}}">
 
-@foreach($comments as $comment)
+<html>
+    <head>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{asset('css/CommentShow.css')}}">
+    </head>
+    <body>
+        @foreach($comments as $comment)
 
 <div class="display-comment" @if($comment->parent_id != null) style="margin-left:40px;" @endif>
 <div class="container">
@@ -57,4 +61,7 @@
 </div>
 </div>  
     @endforeach
+    </body>
+</html>
+
     
