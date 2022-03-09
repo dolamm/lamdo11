@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <p id="success"></p>
-       <a href="http://"><i @click.prevent="likePost" class="fa fa-thumbs-up" aria-hidden="true"></i>{{ totallike }}</a>
+       <span><i style="cursor:pointer" @click.prevent="likePost" class="fa fa-thumbs-up" aria-hidden="true"></i><small>{{ totallike }}</small></span>
     </div>
 </template>
 <script>
