@@ -37,7 +37,7 @@
                                     <span class="stats-total">4.3k</span>
                                  </div>
                               </div>
-                              <div class="timeline-footer">
+                              <div class="timeline-footer" id="hello">
                               
 
                               <like-component :post="{{ $post->id }}"></like-component>
