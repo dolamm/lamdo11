@@ -1,5 +1,8 @@
 <template>
-    <h1>Hello</h1>
+    <div class="container">
+        <p id="success"></p>
+       <a href="http://"><i @click.prevent="likePost" class="fa fa-thumbs-up" aria-hidden="true"></i>{{ totallike }}</a>
+    </div>
 </template>
 <script>
     export default {

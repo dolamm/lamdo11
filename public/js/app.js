@@ -5421,6 +5421,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['post'],
   data: function data() {
@@ -5462,13 +5465,16 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_bootstrap__WEBPACK_IMPORTED_MODULE_0__);
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
 Vue.component('like-component', (__webpack_require__(/*! ./components/LikeComponent.vue */ "./resources/js/components/LikeComponent.vue")["default"]));
-Vue.component('dis-like-component', __webpack_require__(/*! ./components/DisLikeComponent.vue */ "./resources/js/components/DisLikeComponent.vue"));
+Vue.component('dis-like-component', (__webpack_require__(/*! ./components/DisLikeComponent.vue */ "./resources/js/components/DisLikeComponent.vue")["default"]));
 var app = new Vue({
   el: '#hello'
 });
@@ -28158,7 +28164,23 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("Hello")])
+  return _c("div", { staticClass: "container" }, [
+    _c("p", { attrs: { id: "success" } }),
+    _vm._v(" "),
+    _c("a", { attrs: { href: "http://" } }, [
+      _c("i", {
+        staticClass: "fa fa-thumbs-up",
+        attrs: { "aria-hidden": "true" },
+        on: {
+          click: function ($event) {
+            $event.preventDefault()
+            return _vm.likePost.apply(null, arguments)
+          },
+        },
+      }),
+      _vm._v(_vm._s(_vm.totallike)),
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -40386,6 +40408,18 @@ Vue.compile = compileToFunctions;
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	
