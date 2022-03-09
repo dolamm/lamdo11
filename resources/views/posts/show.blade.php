@@ -1,11 +1,16 @@
 @extends('layouts.app')
-<link rel="stylesheet" href="{{asset('css/show.css')}}">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-@push('fontawesome')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-@endpush
+
 @section('content')
-<div class="timeline-body">
+<html>
+    <head>
+        <link rel="stylesheet" href="{{asset('css/show.css')}}">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        @push('fontawesome')
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        @endpush
+    </head>
+    <body>
+        <div class="timeline-body">
                               <div class="timeline-header">
                               <span class="pull-right text-muted">{{date('d/m/y h:i', strtotime($post->created_at))}}</span>
                                  <h2>{{ $post->title }}</h2>
@@ -62,4 +67,7 @@
                               </div>
                            </div>
                            @endguest
-                           @endsection                           
+    </body>
+</html>
+
+@endsection                           
