@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,7 +32,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
-Route::post('like', [PostController::class, 'getlike']);
-Route::post('like/{id}', [PostController::class, 'like']);
-Route::post('dislike', [PostController::class, 'getDislike']);
-Route::post('dislike/{id}', [PostController::class, 'dislike']);
+Route::post('like', [App\Http\Controllers\PostController::class, 'getlike']);
+Route::post('like/{id}', [App\Http\Controllers\PostController::class, 'like']);
+Route::post('dislike', [App\Http\Controllers\PostController::class, 'getDislike']);
+Route::post('dislike/{id}', [App\Http\Controllers\PostController::class, 'dislike']);

@@ -1,7 +1,7 @@
 <template>
-    <div class="container">
+    <div>
         <p id="success"></p>
-       <span><i style = "cursor:pointer" @click.prevent="disLikePost" class="fa fa-thumbs-down" aria-hidden="true"></i><small>{{ totalDislike }}</small></span>
+       <span><i style = "cursor:pointer" @click.prevent="disLikePost" class="fa fa-thumbs-down" aria-hidden="true"></i><small>({{totalDislike}})</small></span>
     </div>
 </template>
 <script>

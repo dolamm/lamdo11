@@ -5,12 +5,10 @@
     <head>
         <link rel="stylesheet" href="{{asset('css/show.css')}}">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        @push('fontawesome')
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        @endpush
     </head>
     <body>
-        <div class="timeline-body">
+        <div class="timeline-body" id="like-dislike-app">
                               <div class="timeline-header">
                               <span class="pull-right text-muted">{{date('d/m/y h:i', strtotime($post->created_at))}}</span>
                                  <h2>{{ $post->title }}</h2>
@@ -37,13 +35,11 @@
                                     <span class="stats-total">4.3k</span>
                                  </div>
                               </div>
-                              <div class="timeline-footer" id="hello">
-                              
+                              <div class="timeline-footer">
 
                               <like-component :post="{{ $post->id }}"></like-component>
-                              <dis-like-component :post="{{ $post->id }}"></dis-like-component>
+                              <dislike-component :post="{{ $post->id }}"></dislike-component>
 
-                              
                                  <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a> 
                                  <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
                               </div>
@@ -53,7 +49,7 @@
                               @include('posts.commentsDisplay', ['comments' => $post->comments, 'post_id' => $post->id])
                               <div class="timeline-comment-box">
                                  <div class="input">
-                                 <form method="post" action="{{ route('comments.store'   ) }}">
+                                 <form method="post" action="{{ route('comments.store') }}">
                         @csrf
                         <div class="form-group">
                             <textarea class="form-control" name=body></textarea>
@@ -66,7 +62,7 @@
                                  </div>
                               </div>
                            </div>
-                           @endguest
+   @endguest
     </body>
 </html>
 
