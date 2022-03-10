@@ -13,10 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Auth::routes();
-Route::get('/', function () {
-    return view('welcome');
-})->name('tc');
-Route::get('/viewpost',function(){
+Route::get('/',function(){
     return redirect()->route('posts.index');
 })->name('view');
 
@@ -36,3 +33,8 @@ Route::post('like', [App\Http\Controllers\PostController::class, 'getlike']);
 Route::post('like/{id}', [App\Http\Controllers\PostController::class, 'like']);
 Route::post('dislike', [App\Http\Controllers\PostController::class, 'getDislike']);
 Route::post('dislike/{id}', [App\Http\Controllers\PostController::class, 'dislike']);
+
+Route::post('commentlike', [App\Http\Controllers\CommentController::class, 'Commentgetlike']);
+Route::post('commentlike/{id}', [App\Http\Controllers\CommentController::class, 'Commentlike']);
+Route::post('commentdislike', [App\Http\Controllers\CommentController::class, 'CommentgetDislike']);
+Route::post('commentdislike/{id}', [App\Http\Controllers\CommentController::class, 'Commentdislike']);

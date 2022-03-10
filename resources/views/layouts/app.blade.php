@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('js/bootstrap.esm.js.map') }}" rel="stylesheet">
     @stack('fontawesome')
@@ -79,7 +79,7 @@
             </div>
         </nav>
 
-        <div>
+        <div id="like-dislike-app">
         <main class="py-4">
             @yield('content')
         </main>

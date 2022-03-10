@@ -16,7 +16,7 @@
 
                     {{ __('You are logged in!') }}
                     </br>
-                    <a href="{{route('tc')}}">Trang chủ</a>
+                    <a href="{{route('view')}}">Trang chủ</a>
                 </div>
             </div>
         </div>
