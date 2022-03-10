@@ -6,12 +6,20 @@
         <link rel="stylesheet" href="{{asset('css/show.css')}}">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     </head>
     <body>
         <div class="timeline-body" id="like-dislike-app">
                               <div class="timeline-header">
                               <span class="pull-right text-muted">{{date('d/m/y h:i', strtotime($post->created_at))}}</span>
                                  <h2>{{ $post->title }}</h2>
+                                 <form method="POST" action="{{route('bookmark')}}">
+                                 @csrf
+                                 <input type="hidden" name=post_id value="{{$post->id}}">
+                                 <button type="submit" class="btn btn-link text-primary">
+                                 <i @if($post->isbookmark()==true) class= "fas fa-bookmark" @else class= "far fa-bookmark" @endif></i>
+                                 </button>
+                                 </form>
                               </div>
                               <div class="timeline-content">
                                  <p>

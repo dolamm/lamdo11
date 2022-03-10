@@ -38,3 +38,9 @@ Route::post('commentlike', [App\Http\Controllers\CommentController::class, 'Comm
 Route::post('commentlike/{id}', [App\Http\Controllers\CommentController::class, 'Commentlike']);
 Route::post('commentdislike', [App\Http\Controllers\CommentController::class, 'CommentgetDislike']);
 Route::post('commentdislike/{id}', [App\Http\Controllers\CommentController::class, 'Commentdislike']);
+
+Route::post('/bookmark', [App\Http\Controllers\BookmarkController::class, 'bookmark'])->name('bookmark');
+Route::post('/showbookmark', [App\Http\Controllers\BookmarkController::class, 'index'])->name('bookmark.show');
+Route::get('/bookmarklist', function () {
+    return view('posts.bookmarked');
+})->name('bookmarked');
