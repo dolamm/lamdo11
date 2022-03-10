@@ -30,7 +30,7 @@ class Post extends Model
         return $this->hasMany(Comment::class)->whereNull('parent_id');
     }
     public function isbookmark(){
-        $bookmark = Bookmark::where('user_id', auth()->user()->id)->where('user_id', $this->id)->first();
+        $bookmark = Bookmark::where('user_id', auth()->user()->id)->where('post_id', $this->id)->first();
         if($bookmark){
             return true;
         }

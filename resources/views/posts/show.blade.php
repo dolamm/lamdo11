@@ -17,7 +17,7 @@
                                  @csrf
                                  <input type="hidden" name=post_id value="{{$post->id}}">
                                  <button type="submit" class="btn btn-link text-primary">
-                                 <i @if($post->isbookmark()==true) class= "fas fa-bookmark" @else class= "far fa-bookmark" @endif></i>
+                                 <i @if($post->isbookmark()==true) class= "far fa-bookmark" @else class= "fas fa-bookmark" @endif></i>
                                  </button>
                                  </form>
                               </div>

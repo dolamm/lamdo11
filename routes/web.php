@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\BookmarkController;
+use App\Http\Controllers\CommentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,29 +23,29 @@ Route::get('/',function(){
 })->name('view');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/store',[App\Http\Controllers\PostController::class, 'store'])->name('posts.store');
-Route::get('/index',[App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
-Route::get('/create',[App\Http\Controllers\PostController::class, 'create'])->name('posts.create');
-Route::get('/show/{post}',[App\Http\Controllers\PostController::class, 'show'])->name('posts.show');
+Route::post('/store',[PostController::class, 'store'])->name('posts.store');
+Route::get('/index',[PostController::class, 'index'])->name('posts.index');
+Route::get('/create',[PostController::class, 'create'])->name('posts.create');
+Route::get('/show/{post}',[PostController::class, 'show'])->name('posts.show');
 
-Route::post('/CommentStore',[App\Http\Controllers\CommentController::class, 'store'])->name('comments.store');
+Route::post('/CommentStore',[CommentController::class, 'store'])->name('comments.store');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 
-Route::post('like', [App\Http\Controllers\PostController::class, 'getlike']);
-Route::post('like/{id}', [App\Http\Controllers\PostController::class, 'like']);
-Route::post('dislike', [App\Http\Controllers\PostController::class, 'getDislike']);
-Route::post('dislike/{id}', [App\Http\Controllers\PostController::class, 'dislike']);
+Route::post('like', [PostController::class, 'getlike']);
+Route::post('like/{id}', [PostController::class, 'like']);
+Route::post('dislike', [PostController::class, 'getDislike']);
+Route::post('dislike/{id}', [PostController::class, 'dislike']);
 
-Route::post('commentlike', [App\Http\Controllers\CommentController::class, 'Commentgetlike']);
-Route::post('commentlike/{id}', [App\Http\Controllers\CommentController::class, 'Commentlike']);
-Route::post('commentdislike', [App\Http\Controllers\CommentController::class, 'CommentgetDislike']);
-Route::post('commentdislike/{id}', [App\Http\Controllers\CommentController::class, 'Commentdislike']);
+Route::post('commentlike', [CommentController::class, 'Commentgetlike']);
+Route::post('commentlike/{id}', [CommentController::class, 'Commentlike']);
+Route::post('commentdislike', [CommentController::class, 'CommentgetDislike']);
+Route::post('commentdislike/{id}', [CommentController::class, 'Commentdislike']);
 
-Route::post('/bookmark', [App\Http\Controllers\BookmarkController::class, 'bookmark'])->name('bookmark');
-Route::post('/showbookmark', [App\Http\Controllers\BookmarkController::class, 'index'])->name('bookmark.show');
+Route::post('/bookmark', [BookmarkController::class, 'bookmark'])->name('bookmark');
+Route::get('/showbookmark', [BookmarkController::class, 'index'])->name('bookmark.show');
 Route::get('/bookmarklist', function () {
     return view('posts.bookmarked');
 })->name('bookmarked');

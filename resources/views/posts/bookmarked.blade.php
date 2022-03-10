@@ -18,7 +18,7 @@
                     <td>{{ $bookmark->post_id }}</td>
                     
                     <td>
-                        <a href="{{ route('bookmark.show', $post->id) }}" class="btn btn-primary">View Post</a>
+                        <a href="{{ route('posts.show', $bookmark->post_id) }}" class="btn btn-primary">View Post</a>
                     </td>
                 </tr>
                 @endforeach

@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <h1>Manage Posts</h1>
             <a href="{{ route('posts.create') }}" class="btn btn-success" style="float: right">Create Post</a>
-            <a href="{{ route('bookmarked') }}" class="btn btn-success" style="float: right">Bookmark List</a>
+            <a href="{{ route('/showbookmark') }}" class="btn btn-success" style="float: right">Bookmark List</a>
             
             <table class="table table-bordered">
                 <thead>

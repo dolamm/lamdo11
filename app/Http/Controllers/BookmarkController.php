@@ -11,7 +11,7 @@
     public function index()
      {
         $bookmarks = Bookmark::where('user_id', auth()->user()->id)->get();
-         return view('bookmark.index', compact('bookmarks'));
+         return view('posts/bookmarked', compact('bookmarks'));
      }
 
      public function bookmark(Request $request)
